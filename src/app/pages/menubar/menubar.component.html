@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h2 id="webTitle"> FHIR Group </h2>
+    <button mat-button class="menuButton" [routerLink]="['/']">Home</button>
+    <button mat-button class="menuButton" [routerLink]="['/groups']">Groups</button>
+    <button mat-button class="menuButton" [routerLink]="['/about']">About</button>
+
+    
+    <button mat-button class="menuButton" [routerLink]="['/login']" *ngIf="isLoggedIn">Login</button>
+
+    <span style="flex: 1 1"></span>
+    <button mat-button [matMenuTriggerFor]="menu">
+      Admin&nbsp;
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>arrow_back</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+
+
+</mat-toolbar>
