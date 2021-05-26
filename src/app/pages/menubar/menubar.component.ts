@@ -8,35 +8,22 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   templateUrl: './menubar.component.html',
   styleUrls: ['./menubar.component.scss']
 })
-export class MenubarComponent implements OnInit, OnChanges {
+export class MenubarComponent implements OnInit {
 
-  isLoggedIn = true;
+  isLoggedIn = false;
 
   constructor(private authService: AuthenticationService, private router: Router) {  
+
+    this.authService.loggedInStatusChange.subscribe(val => this.isLoggedIn = val)
+
    }
-
-  
-
-  isAuthed(): boolean{
-     return localStorage.getItem('user') !== null;
-
-  }
 
   logout(): void {
     this.authService.logout();
-    localStorage.removeItem('user');
     this.router.navigateByUrl('login');
   }
 
   ngOnInit(): void {
-    this.isLoggedIn = this.isAuthed();
-    console.log("Eza z:  " + this.isLoggedIn)
   }
-
-  ngOnChanges(): void{
-    this.isLoggedIn = this.isAuthed();
-  }	
-
-
 
 }
