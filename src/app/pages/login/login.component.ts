@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log("Login induláskor: " + this.authService.authenticated())
   }
 
   login(): void {

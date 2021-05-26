@@ -14,6 +14,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { AboutComponent } from './pages/about/about.component';
 import { GroupsComponent } from './pages/groups/groups.component';
 import { MenubarModule } from './pages/menubar/menubar.module';
+import { ManageComponent } from './pages/manage/manage.component';
 
 @NgModule({
   declarations: [AppComponent],
