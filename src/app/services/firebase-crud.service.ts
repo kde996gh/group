@@ -11,23 +11,24 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class FirebaseCrudService {
+  groups = [];
   constructor(private afs: AngularFirestore) {}
 
   get(collectionName: string): Observable<Group[]> {
     return this.afs
       .collection(collectionName, (ref) => {
         let query: CollectionReference | Query = ref;
-        query = query.orderBy('resourceType', 'asc');
+        query = query.orderBy('name', 'asc');
         return query;
       })
       .valueChanges() as Observable<Group[]>;
   }
 
-  async add(collectionName: string, data: Group, id?: string): Promise<String> {
-    const uid = id ? id : this.afs.createId();
-    data.id = uid;
-    await this.afs.collection(collectionName).doc(uid).set(data);
-    return uid;
+
+  async add(data: Group) {
+    const generatedId = this.afs.createId();
+    data.id = generatedId;
+    await this.afs.collection('Groups').doc(generatedId).set(data);
   }
 
   weakAdd(collectionName: string, data: Group) {
@@ -42,7 +43,11 @@ export class FirebaseCrudService {
     return this.afs.collection(collectionName).doc(id).update(data);
   }
 
-  delete(collectionName: string, id: string) {
-    return this.afs.collection(collectionName).doc(id).delete();
+  async delete(id: string) {
+    await this.afs.collection('Groups').doc(id).delete().then(()=>{
+      console.log("Delete is successful")
+    }, err => {
+      console.warn(err);
+    });;
   }
 }

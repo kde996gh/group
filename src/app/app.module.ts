@@ -15,6 +15,9 @@ import { AboutComponent } from './pages/about/about.component';
 import { GroupsComponent } from './pages/groups/groups.component';
 import { MenubarModule } from './pages/menubar/menubar.module';
 import { ManageComponent } from './pages/manage/manage.component';
+import { GroupaddComponent } from './pages/groupadd/groupadd.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GroupaddModule } from './pages/groupadd/groupadd.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +30,8 @@ import { ManageComponent } from './pages/manage/manage.component';
     GroupcardModule,
     HomeModule,
     AppRoutingModule,
-    MenubarModule
+    MenubarModule,FormsModule, ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

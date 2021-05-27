@@ -1,0 +1,31 @@
+table {
+    margin: auto;
+    width: 70%;
+  }
+
+.centering{
+  margin-top: 5%;
+}
+
+td, th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.mat-sort-header-container {
+  justify-content: center !important;
+}
+
+mat-icon{
+  padding: 5%;
+}
+
+.delete-icon:hover{
+  color: red;
+  cursor: pointer;
+}
+
+.edit-icon:hover{
+  color: green;
+  cursor: pointer;
+}

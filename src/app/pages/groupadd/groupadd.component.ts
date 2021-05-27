@@ -22,6 +22,9 @@ export class GroupaddComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  onYesClick(): void{
+    
+  }
 
 
   ngOnInit(): void {}
