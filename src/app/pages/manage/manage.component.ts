@@ -41,8 +41,15 @@ export class ManageComponent implements OnInit {
   }
 
   editGroup(){
-    
-    const dialogRef = this.dialog.open(GroupaddComponent, {});
+    const dialogRef = this.dialog.open(GroupaddComponent, {
+      data:{
+        name: 'Tibi',
+        type: "Hallo",
+        actual: true,
+        active: true,
+        quantity: 1
+      }
+    });
 
   }
 
