@@ -22,7 +22,7 @@ export interface Group {
   code?: CodeableConcept;
   name?: string;
   quantity?: number;
-  managingEntity?: Reference | string;
+  managingEntity?: Reference;
   characteristic?: characteristicEntity[];
   member?: memberEntity[];
 }

@@ -1,0 +1,82 @@
+<div class="centering">
+  <form [formGroup]="form">
+    <h3>New group</h3>
+    <mat-form-field class="max-width">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        focus
+        formControlName="name"
+        
+      />
+    </mat-form-field>
+<br>
+    <mat-form-field class="max-width">
+      <mat-label>Type</mat-label>
+      <textarea
+        formControlName="type"
+        matInput
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="2"
+        cdkAutosizeMaxRows="5"
+        required
+      ></textarea>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="max-width">
+      <mat-label>Actual</mat-label>
+      <textarea
+        formControlName="actual"
+        matInput
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="2"
+        cdkAutosizeMaxRows="5"
+        required
+      ></textarea>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="max-width">
+      <mat-label>Active</mat-label>
+      <textarea
+        formControlName="active"
+        matInput
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="2"
+        cdkAutosizeMaxRows="5"
+        required
+      ></textarea>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="max-width">
+      <mat-label>Quantity</mat-label>
+      <textarea
+        formControlName="quantity"
+        matInput
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="2"
+        cdkAutosizeMaxRows="5"
+        required
+      ></textarea>
+    </mat-form-field>
+    <br>
+
+    <div style="display: flex; justify-content: flex-end">
+
+      <button mat-button (click)="onNoClick()" class="margin-right">
+        Cancel
+      </button>
+
+      <button
+        mat-button
+        [mat-dialog-close]="form.value"
+        [disabled]="form.invalid"
+        (click)="onYesClick()"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

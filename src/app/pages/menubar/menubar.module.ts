@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,7 +15,7 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [MenubarComponent],
   imports: [
-    CommonModule, MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, RouterModule
+    CommonModule, MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, RouterModule, FormsModule, ReactiveFormsModule
   ],
   exports: [MenubarComponent],
 })

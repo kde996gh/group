@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Group } from 'src/app/models/group';
+import { FirebaseCrudService } from 'src/app/services/firebase-crud.service';
 
 @Component({
   selector: 'app-groups',
   templateUrl: './groups.component.html',
-  styleUrls: ['./groups.component.scss']
+  styleUrls: ['./groups.component.scss'],
 })
 export class GroupsComponent implements OnInit {
+  groups: any[] = [];
 
-  constructor() { }
+  displayedColumns: string[] = ['name', 'type', 'actual', 'active', 'quantity'];
 
-  ngOnInit(): void {
+
+  constructor(private afs: FirebaseCrudService) {}
+
+  getGroups() {
+   this.afs.get('Groups').subscribe((x) => (this.groups = x));
   }
 
+  ngOnInit(): void {
+    this.getGroups();
+  }
 }
