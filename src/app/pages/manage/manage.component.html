@@ -1,5 +1,5 @@
 <div class="centering">
-  <button mat-raised-button (click) = "createNew()">Home</button>
+  <button mat-raised-button (click) = "createNew()">Add new group</button>
 
 </div>
 
@@ -84,7 +84,7 @@
          Manage
         </th>
         <td mat-cell *matCellDef="let element">
-          <mat-icon matTooltip="Edit group" [matTooltipPosition]="'above'" (click) = "editGroup()" class="edit-icon">edit</mat-icon>
+          <mat-icon matTooltip="Edit group" [matTooltipPosition]="'above'" (click) = "editGroup(element.name, element.type, element.actual, element.active, element.quantity, element.id)" class="edit-icon">edit</mat-icon>
           <mat-icon matTooltip="Delete group" [matTooltipPosition]="'above'" (click)="removeGroup(element.id)" class="delete-icon">delete_outline</mat-icon>
         </td>
       </ng-container>

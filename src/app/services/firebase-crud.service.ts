@@ -35,12 +35,12 @@ export class FirebaseCrudService {
     this.afs.collection(collectionName).add(data);
   }
 
-  getById(collectionName: string, id: string): Observable<any> {
-    return this.afs.collection(collectionName).doc(id).valueChanges();
+  getById(id: string): Observable<any> {
+    return this.afs.collection("Groups").doc(id).valueChanges();
   }
 
-  update(collectionName: string, id: string, data: any) {
-    return this.afs.collection(collectionName).doc(id).update(data);
+  async update(id: string, data: any) {
+    await this.afs.collection("Groups").doc(id).update(data);
   }
 
   async delete(id: string) {
