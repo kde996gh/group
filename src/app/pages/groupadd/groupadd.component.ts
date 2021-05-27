@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-groupadd',
@@ -16,16 +20,28 @@ export class GroupaddComponent implements OnInit {
     quantity: new FormControl(''),
   });
 
-  constructor(public dialogRef: MatDialogRef<GroupaddComponent>) {}
+  constructor(
+    public dialogRef: MatDialogRef<GroupaddComponent>,
+    @Inject(MAT_DIALOG_DATA)
+    public data?: {
+      name: string;
+      type: string;
+      actual: boolean;
+      active: boolean;
+      quantity: number;
+    }
+  ) {
+    if(data)
+     this.form.setValue(data)
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-  onYesClick(): void{
-    
-  }
+  onYesClick(): void {}
 
+  hello() {}
 
   ngOnInit(): void {}
 }

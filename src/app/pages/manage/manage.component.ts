@@ -7,43 +7,74 @@ import { GroupaddComponent } from '../groupadd/groupadd.component';
 @Component({
   selector: 'app-manage',
   templateUrl: './manage.component.html',
-  styleUrls: ['./manage.component.scss']
+  styleUrls: ['./manage.component.scss'],
 })
 export class ManageComponent implements OnInit {
   groups: any[] = [];
 
-  displayedColumns: string[] = ['name', 'type', 'actual', 'active', 'quantity', "manage"];
-
+  displayedColumns: string[] = [
+    'name',
+    'type',
+    'actual',
+    'active',
+    'quantity',
+    'manage',
+  ];
 
   constructor(private afs: FirebaseCrudService, private dialog: MatDialog) {}
 
   getGroups() {
-   this.afs.get('Groups').subscribe((x) => (this.groups = x));
+    this.afs.get('Groups').subscribe((x) => (this.groups = x));
   }
 
   ngOnInit(): void {
     this.getGroups();
   }
 
-  createNew(){
+  createNew() {
     const dialogRef = this.dialog.open(GroupaddComponent, {});
-    dialogRef.afterClosed().subscribe((group: Group) => {
-      if (group?.name) {
-        this.afs.add(group);
+    dialogRef.afterClosed().subscribe(
+      (group: Group) => {
+        if (group?.name) {
+          this.afs.add(group);
+        }
+      },
+      (err) => {
+        console.warn(err);
       }
-    }, err => {
-      console.warn(err);
-    });
+    );
   }
 
-  removeGroup(id: any){
+  removeGroup(id: any) {
     this.afs.delete(id);
   }
 
-  editGroup(){
-    
-    const dialogRef = this.dialog.open(GroupaddComponent, {});
-
+  editGroup(
+    pname: any,
+    ptype: any,
+    pactual: any,
+    pactive: any,
+    pquantity: any,
+    id: any
+  ) {
+    const dialogRef = this.dialog.open(GroupaddComponent, {
+      data: {
+        name: pname,
+        type: ptype,
+        actual: pactual,
+        active: pactive,
+        quantity: pquantity,
+      },
+    });
+    dialogRef.afterClosed().subscribe(
+      (group: Group) => {
+        if (group?.name) {
+          this.afs.update(id, group)
+        }
+      },
+      (err) => {
+        console.warn(err);
+      }
+    );
   }
-
 }
