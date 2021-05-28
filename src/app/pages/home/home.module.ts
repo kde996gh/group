@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home-routing.module';
 import { GroupaddComponent } from '../groupadd/groupadd.component';
 import { GroupaddModule } from '../groupadd/groupadd.module';
+import { ConfirmDialogModule } from '../confirm-dialog/confirm-dialog.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -16,6 +18,8 @@ import { GroupaddModule } from '../groupadd/groupadd.module';
     HomeRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    ConfirmDialogModule,
+    MatDialogModule
   ],
   exports: [HomeComponent],
 })

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Group } from 'src/app/models/group';
 import { FirebaseCrudService } from 'src/app/services/firebase-crud.service';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { GroupaddComponent } from '../groupadd/groupadd.component';
 
 @Component({
@@ -46,7 +47,12 @@ export class ManageComponent implements OnInit {
   }
 
   removeGroup(id: any) {
-    this.afs.delete(id);
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {});
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+        this.afs.delete(id);
+      }
+    });
   }
 
   editGroup(

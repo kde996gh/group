@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,11 +17,11 @@ import { ManageComponent } from './pages/manage/manage.component';
 import { GroupaddComponent } from './pages/groupadd/groupadd.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GroupaddModule } from './pages/groupadd/groupadd.module';
+import { ConfirmDialogComponent } from './pages/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
