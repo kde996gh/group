@@ -12,6 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 
+import {MatSelectModule} from '@angular/material/select';
+
+
 @NgModule({
   declarations: [ManageComponent],
   imports: [
@@ -27,6 +30,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSelectModule
   ],
   exports: [ManageComponent]
 })

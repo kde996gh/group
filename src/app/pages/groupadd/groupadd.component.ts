@@ -17,8 +17,10 @@ export class GroupaddComponent implements OnInit {
     type: new FormControl(''),
     actual: new FormControl(''),
     active: new FormControl(''),
-    quantity: new FormControl(''),
+    quantity: new FormControl(0, [Validators.required, Validators.pattern(/[0-9\+\-\ ]/)]),
   });
+
+types = ['Person', 'Animal', 'Practitioner', 'Device', 'Medication', 'Substance']
 
   constructor(
     public dialogRef: MatDialogRef<GroupaddComponent>,
