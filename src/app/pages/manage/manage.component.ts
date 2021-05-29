@@ -67,15 +67,15 @@ export class ManageComponent implements OnInit {
       data: {
         name: pname,
         type: ptype,
-        actual: pactual,
-        active: pactive,
+        actual: pactual === true ? 'true' : 'false',
+        active: pactive === true ? 'true' : 'false',
         quantity: pquantity,
       },
     });
     dialogRef.afterClosed().subscribe(
       (group: Group) => {
         if (group?.name) {
-          this.afs.update(id, group)
+          this.afs.update(id, group);
         }
       },
       (err) => {

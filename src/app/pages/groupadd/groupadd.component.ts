@@ -15,12 +15,22 @@ export class GroupaddComponent implements OnInit {
   form: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     type: new FormControl(''),
-    actual: new FormControl(''),
-    active: new FormControl(''),
-    quantity: new FormControl(0, [Validators.required, Validators.pattern(/[0-9\+\-\ ]/)]),
+    actual: new FormControl(false),
+    active: new FormControl(false),
+    quantity: new FormControl(0, [
+      Validators.required,
+      Validators.pattern(/[0-9\+\-\ ]/),
+    ]),
   });
 
-types = ['Person', 'Animal', 'Practitioner', 'Device', 'Medication', 'Substance']
+  types = [
+    'Person',
+    'Animal',
+    'Practitioner',
+    'Device',
+    'Medication',
+    'Substance',
+  ];
 
   constructor(
     public dialogRef: MatDialogRef<GroupaddComponent>,
@@ -28,13 +38,22 @@ types = ['Person', 'Animal', 'Practitioner', 'Device', 'Medication', 'Substance'
     public data?: {
       name: string;
       type: string;
-      actual: boolean;
-      active: boolean;
+      actual: string;
+      active: string;
       quantity: number;
     }
   ) {
-    if(data)
-     this.form.setValue(data)
+    if (data) {
+      //azért kell az ellenőrzés és uj data object mert stringként jön az input
+      const gr = {
+        name: data.name,
+        type: data.type,
+        actual: data.actual == 'true' ? true : false,
+        active: data.active == 'true' ? true : false,
+        quantity: data.quantity,
+      };
+      this.form.setValue(gr);
+    }
   }
 
   onNoClick(): void {
