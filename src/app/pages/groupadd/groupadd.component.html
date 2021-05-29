@@ -6,6 +6,7 @@
       <input matInput focus formControlName="name" />
     </mat-form-field>
     <br />
+    
     <mat-form-field class="max-width">
       <mat-label>Type</mat-label>
       <mat-select formControlName="type">
@@ -19,8 +20,8 @@
     <mat-form-field class="max-width">
       <mat-label>Actual</mat-label>
       <mat-select formControlName="actual">
-        <mat-option value="true"> Yes </mat-option>
-        <mat-option value="false"> No </mat-option>
+        <mat-option [value]="true"> Yes </mat-option>
+        <mat-option [value]="false"> No </mat-option>
       </mat-select>
     </mat-form-field>
     <br />
@@ -28,8 +29,8 @@
     <mat-form-field class="max-width">
       <mat-label>Active</mat-label>
       <mat-select formControlName="active">
-        <mat-option value="true"> Yes </mat-option>
-        <mat-option value="false"> No </mat-option>
+        <mat-option [value]="true"> Yes </mat-option>
+        <mat-option [value]="false"> No </mat-option>
       </mat-select>
     </mat-form-field>
     <br />
