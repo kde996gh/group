@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Group } from 'src/app/models/group';
 import { FirebaseCrudService } from 'src/app/services/firebase-crud.service';
 
 @Component({

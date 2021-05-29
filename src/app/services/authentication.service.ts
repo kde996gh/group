@@ -29,7 +29,7 @@ export class AuthenticationService {
       .then((res) => {
     //    this.isLoggedIn = true;
         this.loggedInStatusChange.emit(true);
-        localStorage.setItem('user', JSON.stringify(res.user));
+       // localStorage.setItem('user', JSON.stringify(res.user));
       });
   }
 
