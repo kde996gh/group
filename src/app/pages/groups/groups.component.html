@@ -48,7 +48,7 @@
       >
         Active
       </th>
-      <td mat-cell *matCellDef="let element">
+      <td mat-cell *matCellDef="let element" [ngClass]="element.active ? 'true-class' : 'false-class'">
         <div *ngIf="element.active">Yes</div>
         <div *ngIf="!element.active">No</div>
       </td>

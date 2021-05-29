@@ -12,6 +12,7 @@ import {
   styleUrls: ['./groupadd.component.scss'],
 })
 export class GroupaddComponent implements OnInit {
+  
   form: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     type: new FormControl(''),
