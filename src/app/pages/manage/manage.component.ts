@@ -55,14 +55,7 @@ export class ManageComponent implements OnInit {
     });
   }
 
-  editGroup(
-    pname: any,
-    ptype: any,
-    pactual: any,
-    pactive: any,
-    pquantity: any,
-    id: any
-  ) {
+  editGroup(pname: any,ptype: any,pactual: any, pactive: any,pquantity: any,id: any) {
     const dialogRef = this.dialog.open(GroupaddComponent, {
       data: {
         name: pname,
