@@ -1,6 +1,8 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { first, tap } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root',
@@ -14,8 +16,8 @@ export class AuthenticationService {
 
   async logout(): Promise<void> {
     await this.afAuth.signOut().then((res) => {
-      localStorage.removeItem("user")
       this.loggedInStatusChange.emit(false);
+
     });
   }
 
@@ -23,12 +25,17 @@ export class AuthenticationService {
     await this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
-        localStorage.setItem("user", "admin");
         this.loggedInStatusChange.emit(true);
+
       });
   }
 
   currentUserObservable(): any {
     return this.afAuth.authState;
   }
+
+  isLoggedin() {
+    return this.afAuth.authState.pipe(first())
+  }
+
 }

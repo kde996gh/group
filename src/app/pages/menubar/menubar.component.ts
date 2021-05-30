@@ -15,7 +15,10 @@ export class MenubarComponent implements OnInit {
   constructor(private authService: AuthenticationService, private router: Router) {
 
     this.authService.loggedInStatusChange.subscribe(val =>
-       (localStorage.getItem("user")!= null || val === true)? this.isLoggedIn = true : this.isLoggedIn = false)
+      // (localStorage.getItem("user")!= null || val === true)? this.isLoggedIn = true : this.isLoggedIn = false)
+    this.isLoggedIn = val)
+
+    this.authService.isLoggedin().subscribe(val => (val!==null)?this.isLoggedIn = true : this.isLoggedIn = false)
 
   }
 
