@@ -14,7 +14,8 @@ export class MenubarComponent implements OnInit {
 
   constructor(private authService: AuthenticationService, private router: Router) {
 
-    this.authService.loggedInStatusChange.subscribe(val => this.isLoggedIn = val)
+    this.authService.loggedInStatusChange.subscribe(val =>
+       (localStorage.getItem("user")!= null || val === true)? this.isLoggedIn = true : this.isLoggedIn = false)
 
   }
 
@@ -24,6 +25,9 @@ export class MenubarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(localStorage.getItem("user")!= null){
+      this.isLoggedIn = true;
+    }
   }
 
 }
