@@ -1,13 +1,14 @@
 table {
-    margin: auto;
-    width: 70%;
-  }
+  margin: auto;
+  width: 70%;
+}
 
-.centering{
+.centering {
   margin-top: 5%;
 }
 
-td, th {
+td,
+th {
   text-align: center !important;
   vertical-align: middle !important;
 }
@@ -16,16 +17,16 @@ td, th {
   justify-content: center !important;
 }
 
-mat-icon{
+mat-icon {
   padding: 5%;
 }
 
-.delete-icon:hover{
+.delete-icon:hover {
   color: red;
   cursor: pointer;
 }
 
-.edit-icon:hover{
+.edit-icon:hover {
   color: green;
   cursor: pointer;
 }

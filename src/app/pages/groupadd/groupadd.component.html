@@ -6,7 +6,7 @@
       <input matInput focus formControlName="name" />
     </mat-form-field>
     <br />
-    
+
     <mat-form-field class="max-width">
       <mat-label>Type</mat-label>
       <mat-select formControlName="type">
@@ -58,7 +58,6 @@
         mat-button
         [mat-dialog-close]="form.value"
         [disabled]="form.invalid"
-        (click)="onYesClick()"
       >
         Save
       </button>

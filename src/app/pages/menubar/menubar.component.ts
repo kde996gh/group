@@ -12,11 +12,11 @@ export class MenubarComponent implements OnInit {
 
   isLoggedIn = false;
 
-  constructor(private authService: AuthenticationService, private router: Router) {  
+  constructor(private authService: AuthenticationService, private router: Router) {
 
     this.authService.loggedInStatusChange.subscribe(val => this.isLoggedIn = val)
 
-   }
+  }
 
   logout(): void {
     this.authService.logout();

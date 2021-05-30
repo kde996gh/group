@@ -12,7 +12,7 @@ import {
   styleUrls: ['./groupadd.component.scss'],
 })
 export class GroupaddComponent implements OnInit {
-  
+
   form: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     type: new FormControl(''),
@@ -44,6 +44,9 @@ export class GroupaddComponent implements OnInit {
       quantity: number;
     }
   ) {
+
+    console.log(this.form.get)
+
     if (data) {
       //azért kell az ellenőrzés és uj data object mert stringként jön az input
       const gr = {
@@ -60,10 +63,5 @@ export class GroupaddComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-
-  onYesClick(): void {}
-
-  hello() {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

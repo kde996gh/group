@@ -7,12 +7,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-
-
 @NgModule({
   declarations: [ConfirmDialogComponent],
   imports: [
-    CommonModule, FormsModule,
+    CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
@@ -20,6 +19,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatFormFieldModule,
   ],
   entryComponents: [ConfirmDialogComponent],
-  exports: [ConfirmDialogComponent]
+  exports: [ConfirmDialogComponent],
 })
-export class ConfirmDialogModule { }
+export class ConfirmDialogModule {}

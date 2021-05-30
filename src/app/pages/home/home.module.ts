@@ -23,4 +23,4 @@ import { MatDialogModule } from '@angular/material/dialog';
   ],
   exports: [HomeComponent],
 })
-export class HomeModule {}
+export class HomeModule { }

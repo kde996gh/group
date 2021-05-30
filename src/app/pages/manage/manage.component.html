@@ -1,96 +1,112 @@
 <div class="centering">
-  <button mat-raised-button (click) = "createNew()">Add new group</button>
-
+  <button mat-raised-button (click)="createNew()">Add new group</button>
 </div>
 
 <div class="centering">
-
-
   <table mat-table [dataSource]="groups" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        matTooltip="Label for Group"
+        [matTooltipPosition]="'above'"
+      >
+        Name
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
 
-      <ng-container matColumnDef="name">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-          matTooltip="Label for Group"
-          [matTooltipPosition]="'above'"
-        >
-          Name
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
-      </ng-container>
-  
-      <ng-container matColumnDef="type">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-          matTooltip="Shows the group type"
-          [matTooltipPosition]="'above'"
-        >
-          Type
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.type }}</td>
-      </ng-container>
-  
-      <ng-container matColumnDef="actual">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-          matTooltip="Descriptive or actual"
-          [matTooltipPosition]="'above'"
-        >
-          Actual
-        </th>
-        <td mat-cell *matCellDef="let element">
-          <div *ngIf="element.actual">Yes</div>
-          <div *ngIf="!element.actual">No</div>
-        </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="active">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-          matTooltip="Wether this group's record is in active use"
-          [matTooltipPosition]="'above'"
-        >
-          Active
-        </th>
-        <td mat-cell *matCellDef="let element">
-          <div *ngIf="element.active">Yes</div>
-          <div *ngIf="!element.active">No</div>
-        </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="quantity">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-          matTooltip="Number of members"
-          [matTooltipPosition]="'above'"
-        >
-          Quantity  
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
-      </ng-container>
+    <ng-container matColumnDef="type">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        matTooltip="Shows the group type"
+        [matTooltipPosition]="'above'"
+      >
+        Type
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+    </ng-container>
 
-      <ng-container matColumnDef="manage">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-          matTooltip="Wether this group's record is in active use"
+    <ng-container matColumnDef="actual">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        matTooltip="Descriptive or actual"
+        [matTooltipPosition]="'above'"
+      >
+        Actual
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="element.actual">Yes</div>
+        <div *ngIf="!element.actual">No</div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="active">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        matTooltip="Wether this group's record is in active use"
+        [matTooltipPosition]="'above'"
+      >
+        Active
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="element.active">Yes</div>
+        <div *ngIf="!element.active">No</div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        matTooltip="Number of members"
+        [matTooltipPosition]="'above'"
+      >
+        Quantity
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="manage">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        matTooltip="Wether this group's record is in active use"
+        [matTooltipPosition]="'above'"
+      >
+        Manage
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon
+          matTooltip="Edit group"
           [matTooltipPosition]="'above'"
+          (click)="
+            editGroup(
+              element.name,
+              element.type,
+              element.actual,
+              element.active,
+              element.quantity,
+              element.id
+            )
+          "
+          class="edit-icon"
+          >edit</mat-icon
         >
-         Manage
-        </th>
-        <td mat-cell *matCellDef="let element">
-          <mat-icon matTooltip="Edit group" [matTooltipPosition]="'above'" (click) = "editGroup(element.name, element.type, element.actual, element.active, element.quantity, element.id)" class="edit-icon">edit</mat-icon>
-          <mat-icon matTooltip="Delete group" [matTooltipPosition]="'above'" (click)="removeGroup(element.id)" class="delete-icon">delete_outline</mat-icon>
-        </td>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-  </div>
-  
+        <mat-icon
+          matTooltip="Delete group"
+          [matTooltipPosition]="'above'"
+          (click)="removeGroup(element.id)"
+          class="delete-icon"
+          >delete_outline</mat-icon
+        >
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

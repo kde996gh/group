@@ -15,11 +15,6 @@ const routes: Routes = [
       import('./pages/login/login.module').then((m) => m.LoginModule),
   },
   {
-    path: 'about',
-    loadChildren: () =>
-      import('./pages/about/about.module').then((m) => m.AboutModule),
-  },
-  {
     path: 'groups',
     loadChildren: () =>
       import('./pages/groups/groups.module').then((m) => m.GroupsModule),
@@ -46,4 +41,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

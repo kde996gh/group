@@ -22,7 +22,7 @@ export class ManageComponent implements OnInit {
     'manage',
   ];
 
-  constructor(private afs: FirebaseCrudService, private dialog: MatDialog) {}
+  constructor(private afs: FirebaseCrudService, private dialog: MatDialog) { }
 
   getGroups() {
     this.afs.get('Groups').subscribe((x) => (this.groups = x));
@@ -55,7 +55,7 @@ export class ManageComponent implements OnInit {
     });
   }
 
-  editGroup(pname: any,ptype: any,pactual: any, pactive: any,pquantity: any,id: any) {
+  editGroup(pname: any, ptype: any, pactual: any, pactive: any, pquantity: any, id: any) {
     const dialogRef = this.dialog.open(GroupaddComponent, {
       data: {
         name: pname,
