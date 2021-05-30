@@ -1,13 +1,14 @@
 table {
-   // margin: auto;
-    width: 80%;
-  }
+  // margin: auto;
+  width: 80%;
+}
 
-.centering{
+.centering {
   margin-top: 5%;
 }
 
-td, th {
+td,
+th {
   text-align: center !important;
   vertical-align: middle !important;
 }
@@ -16,10 +17,10 @@ td, th {
   justify-content: center !important;
 }
 
-.true-class{
- color: green;
+.true-class {
+  color: green;
 }
 
-.false-class{
-  color:red;
+.false-class {
+  color: red;
 }

@@ -28,4 +28,4 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   ],
   exports: [GroupsComponent],
 })
-export class GroupsModule {}
+export class GroupsModule { }

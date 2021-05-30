@@ -6,8 +6,8 @@ import { ManageComponent } from './manage.component';
 
 const routes: Routes = [
   {
-      path: '',
-      component: ManageComponent,
+    path: '',
+    component: ManageComponent,
   }
 ];
 

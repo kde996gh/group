@@ -25,4 +25,4 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   exports: [LoginComponent],
 })
-export class LoginModule {}
+export class LoginModule { }

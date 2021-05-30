@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class FirebaseCrudService {
   groups = [];
-  constructor(private afs: AngularFirestore) {}
+  constructor(private afs: AngularFirestore) { }
 
   get(collectionName: string): Observable<Group[]> {
     return this.afs
@@ -31,20 +31,12 @@ export class FirebaseCrudService {
     await this.afs.collection('Groups').doc(generatedId).set(data);
   }
 
-  weakAdd(collectionName: string, data: Group) {
-    this.afs.collection(collectionName).add(data);
-  }
-
-  getById(id: string): Observable<any> {
-    return this.afs.collection("Groups").doc(id).valueChanges();
-  }
-
   async update(id: string, data: any) {
     await this.afs.collection("Groups").doc(id).update(data);
   }
 
   async delete(id: string) {
-    await this.afs.collection('Groups').doc(id).delete().then(()=>{
+    await this.afs.collection('Groups').doc(id).delete().then(() => {
       console.log("Delete is successful")
     }, err => {
       console.warn(err);

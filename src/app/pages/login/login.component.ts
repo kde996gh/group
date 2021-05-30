@@ -33,8 +33,7 @@ export class LoginComponent implements OnInit {
     }
     this.authService.login(this.form.value.email, this.form.value.password).then(
       result => {
-       // localStorage.setItem('user', 'Admin');
-        this.navTo('/home');
+        this.navTo('/manage');
       },
       (error) => {
         this.alertMessage = (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password')

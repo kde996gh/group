@@ -5,8 +5,8 @@ import { GroupsComponent } from './groups.component';
 
 const routes: Routes = [
   {
-      path: '',
-      component: GroupsComponent,
+    path: '',
+    component: GroupsComponent,
   }
 ];
 

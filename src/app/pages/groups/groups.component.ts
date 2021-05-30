@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
 import { FirebaseCrudService } from 'src/app/services/firebase-crud.service';
 
 @Component({
@@ -12,13 +13,14 @@ export class GroupsComponent implements OnInit {
   displayedColumns: string[] = ['name', 'type', 'actual', 'active', 'quantity'];
 
 
-  constructor(private afs: FirebaseCrudService) {}
+  constructor(private afs: FirebaseCrudService) { }
 
   getGroups() {
-   this.afs.get('Groups').subscribe((x) => (this.groups = x));
+    this.afs.get('Groups').subscribe((x) => (this.groups = x));
   }
 
   ngOnInit(): void {
     this.getGroups();
   }
+
 }
