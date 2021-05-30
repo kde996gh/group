@@ -15,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [MenubarComponent],
   imports: [
-    CommonModule, MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, RouterModule, FormsModule, ReactiveFormsModule
+    CommonModule, MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, RouterModule, 
+    FormsModule, ReactiveFormsModule
   ],
   exports: [MenubarComponent],
 })
