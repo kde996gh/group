@@ -14,6 +14,7 @@ export class AuthenticationService {
 
   async logout(): Promise<void> {
     await this.afAuth.signOut().then((res) => {
+      localStorage.removeItem("user")
       this.loggedInStatusChange.emit(false);
     });
   }
@@ -22,6 +23,7 @@ export class AuthenticationService {
     await this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
+        localStorage.setItem("user", "admin");
         this.loggedInStatusChange.emit(true);
       });
   }
