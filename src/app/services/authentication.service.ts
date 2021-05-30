@@ -1,7 +1,6 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
